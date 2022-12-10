@@ -63,14 +63,14 @@ function addToList(item) {
     const newDiv = document.createElement('div');
     newDiv.classList.add('contact_list');
     newDiv.innerHTML = `
-    <div class="filter_class">
+    <div>
         <p>
             <span>${item.firstName}</span>
             <span>${item.lastName}</span>
         </p>
-        <p><img src="call.svg" alt="phone">${item.phoneNumber}</p>
+        <p><img src="icons/call.svg" alt="phone">${item.phoneNumber}</p>
     </div>
-    <img id="delete_btn" src="delete.svg" alt="delete">
+    <img id="delete_btn" src="icons/delete.svg" alt="delete">
     `;
     document.querySelector('section').appendChild(newDiv);
 }
