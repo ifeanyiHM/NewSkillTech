@@ -28,12 +28,15 @@
                             </div>
                             <form>
                                 <div>
-                                    <input id="first_name" type="text" placeholder="First name">
-                                    <input id="last_name" type="text" placeholder="Last name">
-                                    <input id="phone_number" type="text" placeholder="Phone number">
+                                    <input class="input_valid" id="first_name" type="text" placeholder="First name" maxlength="20">
+                                    <span class="validation" id="val1">Please enter your first name</span>
+                                    <input class="input_valid" id="last_name" type="text" placeholder="Last name" maxlength="20">
+                                    <span class="validation" id="val2">Please enter your last name</span>
+                                    <input class="input_valid" id="phone_number" type="text" placeholder="Phone number" maxlength="15">
+                                    <span class="validation" id="val3">Please enter your phone number</span>
                                 </div>
                                 <div>
-                                    <button id="submit_btn" type="submit">Create</button>
+                                    <button id="submit_btn" type="button">Create</button>
                                     <button id="reset_btn" type="button">Cancel</button>
                                 </div>
                             </form>
@@ -48,13 +51,24 @@
             <section id="section">
                 <div class="contact_list">
                     <div>
-                        <p>
-                            <span>Eric</span>
-                            <span>Elliot</span>
-                        </p>
-                        <p><img src="icons/call.svg" alt="phone"> 08145663725</p>
+                        <div>
+                            <span contenteditable="false">Eric</span>
+                            <span contenteditable="false">Elliot</span>
+                        </div>
+                        <div>
+                            <img src="icons/call.svg" alt="phone">
+                            <span contenteditable="false">08145663725</span>
+                        </div>
                     </div>
-                    <img id="delete_btn" src="icons/delete.svg" alt="delete">
+                    <div>
+                        <div id="nav_option">
+                            <p id="edit_contact">EDIT</p>
+                            <img id="delete_btn" src="icons/delete.svg" alt="delete">
+                            <span id="exit_option">x</span>
+                        </div>
+                        <img id="nav_btn" src="icons/nav.svg" alt="navigation">
+                    </div>
+
                 </div>
             </section>
             <footer>
@@ -62,6 +76,7 @@
             </footer>
        </div>
     </div>
+
     <script src="contact.js"></script>
 </body>
 </html>

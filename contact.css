@@ -76,7 +76,6 @@ body .container .cont #first_modal #second_modal .pad form div:nth-child(1) inpu
   width: 100%;
   box-sizing: border-box;
   height: 30px;
-  margin-bottom: 10px;
   outline: none;
   border: 1px solid rgba(0, 0, 0, 0.3019607843);
   border-radius: 5px;
@@ -101,6 +100,11 @@ body .container .cont #first_modal #second_modal .pad form div:nth-child(1) inpu
 body .container .cont #first_modal #second_modal .pad form div:nth-child(1) input:-webkit-autofill,
 body .container .cont #first_modal #second_modal .pad form div:nth-child(1) input:-webkit-autofill:focus {
   box-shadow: 0 0 0 30px white inset !important;
+}
+body .container .cont #first_modal #second_modal .pad form div:nth-child(1) span {
+  font-size: 0.7em;
+  color: #dd0606;
+  visibility: hidden;
 }
 body .container .cont #first_modal #second_modal .pad form div:nth-child(2) {
   padding: 10px;
@@ -188,25 +192,55 @@ body .container .cont section .contact_list {
           animation-play-state: paused;
 }
 body .container .cont section .contact_list div {
-  line-height: 0;
+  line-height: 10px;
 }
-body .container .cont section .contact_list div p {
+body .container .cont section .contact_list div span {
+  outline: none;
+}
+body .container .cont section .contact_list div div {
   font-size: 0.9em;
   font-weight: 500;
+  display: flex;
+  gap: 10px;
 }
-body .container .cont section .contact_list div p:nth-child(2) {
+body .container .cont section .contact_list div div:nth-child(2) {
   font-size: 0.7em;
   display: flex;
   align-items: center;
   font-weight: 400;
+  gap: 2px;
 }
-body .container .cont section .contact_list div p:nth-child(2) img {
+body .container .cont section .contact_list div div:nth-child(2) img {
   width: 15px;
+  padding-left: 0;
+  padding-right: 2px;
 }
-body .container .cont section .contact_list div ~ img {
-  background: #dd0606;
+body .container .cont section .contact_list div ~ div {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+body .container .cont section .contact_list div ~ div img {
   padding: 7px;
+  width: 7px;
+}
+body .container .cont section .contact_list div ~ div div {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  position: absolute;
+  right: 7px;
+  display: none;
+}
+body .container .cont section .contact_list div ~ div div span {
+  position: absolute;
+  top: -8px;
+  right: -14px;
+}
+body .container .cont section .contact_list div ~ div #delete_btn {
+  background: #dd0606;
   width: 15px;
+  padding: 4px;
 }
 body .container .cont footer {
   font-size: 0.7em;
