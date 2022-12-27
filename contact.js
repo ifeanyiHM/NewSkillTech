@@ -2,10 +2,12 @@ const addContact = document.querySelector('.add');
 const displayModal = document.getElementById('first_modal');
 const removeContact = document.getElementById('close');
 
+//TO DISPLAY CONTACT FORM
 addContact.addEventListener('click', () => {
     displayModal.style.display = "block";
 });
 
+//TO CLOSE CONTACT FORM AFTER FILLING
 removeContact.addEventListener('click', () => {
     displayModal.style.display = "none";
 });
@@ -28,13 +30,25 @@ document.querySelectorAll('.input_valid').forEach(valid => {
         if (valid.value !== 0) {
            let content = valid.nextElementSibling;
            content.style.visibility ="hidden";
-        } else if (valid.value >= 1) {
-            contnet.style.visibility = "visibile";
-        }
+        } 
     });
 });
 
-//TO SUBMIT CONTACT FORM WHEN FILLED AND FORM
+const reall = document.getElementById('phone_number');
+reall.addEventListener('input', () => {
+    if ( isNaN(reall.value)) {
+        let cont = reall.nextElementSibling;
+        cont.style.visibility = "visible"
+        cont.innerHTML = "This input field only recieves numbers."
+    } else {
+        let cont = reall.nextElementSibling;
+        cont.style.visibility = "hidden"
+        cont.innerHTML = "Please enter your phone number";   
+    }
+})
+
+
+//TO SUBMIT CONTACT FORM WHEN FILLED AND FORM VALIDATION
 submitBtn.onclick = (e) => {
     const contact = new Contact(firstName.value, lastName.value, phoneNumber.value);
    if (firstName.value && lastName.value && phoneNumber.value >= 1) {
@@ -62,9 +76,11 @@ submitBtn.onclick = (e) => {
         }
         if (phoneNumber.value === '' || phoneNumber.value === null) {
             document.getElementById('val3').style.visibility = "visible"
-        } else {
-            document.getElementById('val3').style.visibility = "hidden"
-        }
+        } else
+         if ( phoneNumber.value >= 1 || isNaN(phoneNumber.value)) {
+            console.log('hello')
+            document.getElementById('val3').innerHTML = "This input field only recieves numbers"
+        } 
     }
    e.preventDefault();
 };
@@ -135,8 +151,6 @@ document.addEventListener('click', event => {
     }   
 });
 
-
-
 //TO GET CONTACT FORM DETAILS AND ADD TO LIST
 function addToList(item) {
     const newDiv = document.createElement('div');
@@ -168,13 +182,23 @@ function addToList(item) {
 document.addEventListener('click', event => {
    if (event.target.id === 'delete_btn') {
         console.log('delete')
-        alert("Do you want to delete this contact?");
-        let delete_parent = event.target.parentElement.parentElement.parentElement;
-        delete_parent.style.animationPlayState = 'running';
-        delete_parent.addEventListener('animationend', () => {
-            delete_parent.remove();
+        document.querySelector('.warning-modal').style.display = 'block';
+        let yesd = document.getElementById('yes_delete');
+        yesd.addEventListener('click', () => {
+            let delete_parent = event.target.parentElement.parentElement.parentElement;
+            delete_parent.style.animationPlayState = 'running';
+            delete_parent.addEventListener('animationend', () => {
+                delete_parent.remove();
+            });
+            document.querySelector('.warning-modal').style.display = 'none';
         });
    }
+});
+
+//To Change you mind about deleteing contact lol
+let nod = document.getElementById('no_delete');
+nod.addEventListener('click', () => {
+    document.querySelector('.warning-modal').style.display = 'none';
 });
 
 //TO SEARCH A PARTICULAR CONTACT
