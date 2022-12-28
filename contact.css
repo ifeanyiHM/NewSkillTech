@@ -272,11 +272,11 @@ body .container .cont .warning-modal div button {
   border: none;
   padding: 8px 33px;
   font-size: 0.7em;
-  background: #036ad2;
+  background: #959393;
   color: #fff;
 }
 body .container .cont .warning-modal div button:hover {
-  background: #8760f0;
+  background: rgb(175, 172, 172);
 }
 body .container .cont .warning-modal div button:nth-child(4) {
   background: #dd0606;
